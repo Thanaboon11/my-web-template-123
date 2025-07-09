@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NP อาหารแช่แข็ง</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>NP อาหารแช่แข็ง</h1>
+        <nav>
+            </nav>
+    </header>
+
+    <main>
+        <section id="menu-page" class="page active">
+            <h2>เมนูสั่งสินค้า</h2>
+            <div class="categories">
+                <button class="category-btn" data-category="mukrata">เซตหมูกระทะ</button>
+                <button class="category-btn" data-category="meat">เนื้อ</button>
+                <button class="category-btn" data-category="seafood">ทะเล</button>
+                <button class="category-btn" data-category="processed">อาหารแปรรูป</button>
+            </div>
+
+            <div id="product-list" class="product-list">
+                </div>
+
+            <div class="cart-summary-bar">
+                <span id="cart-item-count">0 รายการ</span>
+                <span id="cart-total">รวม: 0.00 ฿</span>
+                <button id="view-cart-btn">ดูตะกร้าสินค้า</button>
+            </div>
+        </section>
+
+        <section id="cart-delivery-page" class="page">
+            <h2>สรุปคำสั่งซื้อและที่อยู่จัดส่ง</h2>
+            <div id="cart-items-summary">
+                </div>
+
+            <div class="order-summary-total">
+                <p>รวมทั้งหมด: <span id="cart-delivery-total">0.00 ฿</span></p>
+                <p class="min-order-alert" style="display: none;">*คุณต้องสั่งอย่างน้อย 100.00 ฿ ขึ้นไป</p>
+            </div>
+
+            <h3>ข้อมูลจัดส่ง</h3>
+            <form id="delivery-form">
+                <div class="form-group">
+                    <label for="customer-name">ชื่อผู้รับ:</label>
+                    <input type="text" id="customer-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="customer-phone">เบอร์โทรศัพท์:</label>
+                    <input type="tel" id="customer-phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="customer-address">ที่อยู่:</label>
+                    <textarea id="customer-address" rows="4" required></textarea>
+                </div>
+                <button type="submit" id="proceed-to-payment-btn">ดำเนินการชำระเงิน</button>
+            </form>
+            <button class="back-btn" data-target="menu-page">ย้อนกลับ</button>
+        </section>
+
+        <section id="payment-page" class="page">
+            <h2>ชำระเงิน</h2>
+            <div class="payment-info">
+                <p>รหัสคำสั่งซื้อ: <strong id="order-id-display">#XXXXXX</strong></p>
+                <p>ยอดที่ต้องชำระ: <strong id="payment-amount-display">0.00 THB</strong></p>
+                <img src="https://via.placeholder.com/250?text=PromptPay+QR+Code" alt="PromptPay QR Code" class="qr-code">
+                <p class="qr-note">สแกน QR Code เพื่อชำระเงินผ่าน PromptPay</p>
+
+                <div class="upload-slip-section">
+                    <h3>แนบสลิปการโอนเงิน</h3>
+                    <input type="file" id="slip-upload-input" accept="image/*">
+                    <button id="upload-slip-btn" disabled>อัปโหลดสลิป</button>
+                    <p class="slip-status" id="slip-upload-status"></p>
+                </div>
+
+                <div class="line-info">
+                    <p>ส่งสลิปที่เพจ NP อาหารแช่แข็ง</p>
+                    <p>เพิ่มเพื่อน พร้อมแนบหลักฐานการโอนเงินผ่าน LINE</p>
+                    <button class="add-line-btn">ADD FRIEND (LINE)</button>
+                </div>
+            </div>
+            <div class="payment-actions">
+                <button id="confirm-payment-btn">ยืนยันการชำระเงิน</button>
+                <button id="cancel-order-btn">ยกเลิกออเดอร์</button>
+                <button class="back-btn" data-target="cart-delivery-page">ย้อนกลับ</button>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
